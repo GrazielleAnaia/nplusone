@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: nplusone
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/orders
+    username: demo
+    password: demo
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        session_factory.statement_inspector: com.productionready.nplusone.config.QueryCounter
+        jdbc.batch_size: 50
+        order_inserts: true
+
+demo:
+  seed:
+    orders: 1000
