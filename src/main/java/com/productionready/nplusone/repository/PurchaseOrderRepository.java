@@ -10,7 +10,7 @@ public interface PurchaseOrderRepository extends JpaRepository<PurchaseOrder, Lo
 
     @Query("""
             select o from PurchaseOrder o
-            order by o.id
+            left join fetch o.lines order by o.id
             """)
     List<PurchaseOrder> findAllWithLines();
 }
