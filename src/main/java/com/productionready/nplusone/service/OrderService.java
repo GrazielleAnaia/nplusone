@@ -2,6 +2,7 @@ package com.productionready.nplusone.service;
 
 import com.productionready.nplusone.dto.OrderResponse;
 import com.productionready.nplusone.repository.PurchaseOrderRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,8 +18,8 @@ public class OrderService {
         this.orders = orders;
     }
 
-    public List<OrderResponse> findAll() {
-        return orders.findAllWithLines().stream()
+    public List<OrderResponse> findAll(Pageable pageable) {
+        return orders.findAllWithLines(pageable).stream()
                 .map(OrderResponse::from)
                 .toList();
     }

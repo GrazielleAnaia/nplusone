@@ -9,10 +9,12 @@ spring:
 
   jpa:
     open-in-view: false
+    show-sql: true
     hibernate:
       ddl-auto: create-drop
     properties:
       hibernate:
+        format_sql: true
         session_factory.statement_inspector: com.productionready.nplusone.config.QueryCounter
         jdbc.batch_size: 50
         order_inserts: true
