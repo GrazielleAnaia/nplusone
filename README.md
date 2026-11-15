@@ -1,5 +1,7 @@
 # Spring Boot JPA: The N+1 Query Problem (`1,001 -> 1` Query)
 
+📺 **Watch the full walkthrough:** [Hibernate N+1 Query Problem in Spring Boot: 1,001 SQL Queries](https://youtu.be/mUhMFAXodtw) by [@ProdReadyCodeBackend](https://youtube.com)
+
 This repository accompanies the YouTube deep dive on diagnosing and fixing the **Hibernate N+1 Query Problem** using **Spring Boot 4, Java 25, and PostgreSQL**.
 
 It demonstrates how a standard `@OneToMany(fetch = FetchType.LAZY)` relationship between `PurchaseOrder` and `OrderLine` silently triggers **1,001 separate SQL queries** during a single `GET /orders` request—and how a single line of JPQL (`LEFT JOIN FETCH`) collapses those 1,001 database round-trips down to **1 SQL query**.
